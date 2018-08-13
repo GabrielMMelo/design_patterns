@@ -5,11 +5,6 @@
 
 %%
 %%  TODO: tabela
-%%  TODO: snippet
-%%  TODO: sections/enumerate/description
-%%  TODO: header (only in first page)
-%%  TODO: footer (all pages except on first)
-%%
 %%
 
 %%%% PREAMBLE %%%%
@@ -17,16 +12,70 @@
 %%% MASTER HEADER
 \input{layouts/master.tex}
 
+%%% LISTINGS HEADER
+\input{layouts/listings.tex}
+
 %% DADOS DO DOCUMENTO
-\def\titulo{CONTRATO DE PRESTAÇÃO DE SERVIÇOS}
+\def\titulo{DOCUMENTO PADRÃO EMAKERS JÚNIOR}
 
-\title{\titulo{DOCUMENT TITLE}}
+\title{\titulo}
 \author{Gabriel Marques de Melo}
-
+    
 % Document
 \begin{document}
     \maketitle
     \thispagestyle{first_page}
     \pagestyle{all_pages}
+
+    \section{First section}\label{sec:firstSection}
+        \lipsum[1]
+
+        % FIGURE
+        \begin{figure}[!htb]
+            \centering
+            \includegraphics[width=8cm]{logo-emakers}
+            \caption{Emakers Junior's logo}
+            \label{logo-emakers}
+        \end{figure}
+
+        \subsection{First subsection}\label{subsec:firstSubsection}
+        \lipsum[1]
+
+    \section{Second section}\label{sec:secondSection}
+        \lipsum[1]
+        \subsection{Enumerated list}
+
+        % LISTA ENUMERADA
+        \begin{enumerate}[label=(\roman*)]
+            \item First point;
+            \item Second point;
+            \item Third point;
+            \item Another points...
+        \end{enumerate}
+
+
+    \section{Some snippets}\label{sec:snippets}
+        % SNIPPET EXEMPLO
+    	\lstinputlisting[language=Python, firstline=21, lastline=26]{docs/example_code_1.py}\label{snippet:example_code_1}
+
+    \begin{lstlisting}[language=C,caption={Some C code example}]
+#include <stdio.h>
+#define N 10
+/* Block
+* comment */
+
+int main(){
+    int i;
+
+    // Line comment.
+    puts("Hello world!");
+
+    for (i = 0; i < N; i++){
+        puts("LaTeX is also great for programmers!");
+    }
+
+    return 0;
+}    \end{lstlisting}
+
 
 \end{document}
