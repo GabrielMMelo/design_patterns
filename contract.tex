@@ -2,9 +2,6 @@
 %% Author: melo
 %% 05/08/2018
 %%
-
-%%
-%% TODO: TWO COLLUMNS ON ASSIGMENT SECTION
 %%
 
 %%%% PREAMBLE %%%%
@@ -24,6 +21,8 @@
 \usepackage{xcolor}
 \usepackage{framed}
 \definecolor{purple-emk}{RGB}{125,0,125}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
 
 %% ROBOTO FONT (http://www.tug.dk/FontCatalogue/roboto/)
 \usepackage[sfdefault]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
@@ -43,6 +42,7 @@
 \def\cidadeUF{CIDADE/UF}
 \def\cpf{111.111.111-11}
 \def\rg{11.111.111}
+
 
 % New command to set text margin
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
@@ -104,24 +104,37 @@
 %%% COUNTERS &&&
 \newcounter{clausula_number}
 \setcounter{clausula_number}{0}
+\newcounter{paragrafo_number}
+\setcounter{paragrafo_number}{0}
+
+\makeatletter
+\@addtoreset{paragrafo_number}{clausula_number}
+\makeatother
 
 
 %% CLÁUSULA COMMAND
 \newcommand{\clausula}{
-                \addtocounter{clausula_number}{1}
-                \section*{\hspace{-22pt} \textbf{CLÁUSULA  \arabic{clausula_number}º:}}\label{sec:Clausula\arabic{clausula_number}}}
+    \stepcounter{clausula_number}
+    \section*{\hspace{-20pt} \textbf{CLÁUSULA  \arabic{clausula_number}º:}}\label{sec:Clausula\arabic{clausula_number}}
+}
+
+%% PARAGRAFO COMMAND
+\newcommand{\paragrafo}{
+    \addtocounter{paragrafo_number}{1}
+    \section*{\hspace{-20pt} \textbf{§  \arabic{paragrafo_number}º:}}\label{sec:Paragrafo\arabic{paragrafo_number}-\arabic{clausula_number}}
+}
 
 %% ASSINGMENT COMMAND
 \newcommand{\assigment}[2]{
-                \begin{center}
-                    \underline{\hspace{7cm}}
+    \begin{center}
+        \underline{\hspace{7cm}}
 
-                    #1
+        #1
 
-                    #2
-                    
-                \end{center}
-                }
+        #2
+
+    \end{center}
+}
 
 %% CONTRATO'S COMMANDS
 \newcommand{\contratada}{\section*{\hspace{-20pt} \textbf{CONTRATADA:}} Gabriel Marques de Melo, estudante, brasileiro, solteiro, residente e domiciliado à rua Comandante Vilas Boas, 29, Bairro Jardim Floresta, Lavras/MG, inscrito sob o CPF de nº 021.324.496-94 e RG de nº MG-16.191.021. }\label{Contratada}
@@ -149,23 +162,95 @@
     \contratada
     \contratante
 
+    \bigskip
 
+    \noindent As partes acima identificadas firmam o presente contrato nos termos aqui ajustados.
 
-    % Set text horizontal margin
-
-    \clausula OI
-    \lipsum[1-2]
+    \clausula OI \lipsum[1-2]
     \clausula Refere-se CLÁUSULA 1 \ref{clausula_5} \lipsum[1]
+        \paragrafo \lipsum[1]
+        \paragrafo \lipsum[1]
     \clausula \lipsum[1]
+        \paragrafo \lipsum[1]
+        \paragrafo \lipsum[1]
     \clausula \lipsum[1]
     \clausula \label{clausula_5} \lipsum[1]
     \clausula \lipsum[1]
 
-    \assigment{Gabriel Marques de Melo}{Diretor-presidente Emakers Júnior}
+    \begin{multicols}{2}
+        \begin{center}
+            \textbf{CONTRATADA}
 
-  %      \clausula TO doido todoido to doido tô doido
-    %\section{CLAUSULA}\label{sec:clausula} oaisdoas
-    %\section{CLAUSULA}\label{sec:clausula} oaisdoas
-        %\section{\clausula}\label{sec:secondSection}
+            \bigskip
+            
+            \bigskip    
+
+        \end{center}
+        \assigment{Gabriel Marques de Melo}{Diretor-presidente Emakers Júnior}
+
+        \bigskip
+
+        \bigskip
+
+        \bigskip
+
+        \begin{center}
+            \textbf{TESTEMUNHA 1}
+
+            \bigskip            
+
+        \end{center}
+
+        Nome:
+
+        \bigskip    
+
+        CPF:
+
+        \bigskip    
+
+        RG:
+
+        \bigskip    
+        \assigment{}{}
+
+        \begin{center}
+            \textbf{CONTRATANTE}
+            
+            \bigskip
+            
+            \bigskip    
+
+        \end{center}
+        \assigment{\nome}{\profissao}
+
+        \bigskip
+
+        \bigskip
+
+        \bigskip
+
+        \begin{center}
+            \textbf{TESTEMUNHA 2}
+            
+            \bigskip 
+
+        \end{center}
+
+        Nome:
+
+        \bigskip    
+
+        CPF:
+
+        \bigskip    
+
+        RG:
+
+        \bigskip    
+
+        \assigment{}{}
+
+    \end{multicols}
 
 \end{document}
