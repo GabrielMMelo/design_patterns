@@ -1,0 +1,143 @@
+%%
+%% Author: Gabriel Melo
+%% 05/08/2018
+%%
+
+%%% COUNTERS &&&
+\newcounter{clausula_number}
+\setcounter{clausula_number}{0}
+\newcounter{paragrafo_number}
+\setcounter{paragrafo_number}{0}
+
+\makeatletter
+\@addtoreset{paragrafo_number}{clausula_number}
+\makeatother
+
+
+%% CLÁUSULA COMMAND
+\newcommand{\clausula}{
+\stepcounter{clausula_number}
+\section*{\hspace{-20pt} \textbf{CLÁUSULA  \arabic{clausula_number}º:}}\label{sec:Clausula\arabic{clausula_number}}
+}
+
+%% PARAGRAFO COMMAND
+\newcommand{\paragrafo}{
+\addtocounter{paragrafo_number}{1}
+\section*{\hspace{-20pt} \textbf{§  \arabic{paragrafo_number}º:}}\label{sec:Paragrafo\arabic{paragrafo_number}-\arabic{clausula_number}}
+}
+
+%% SECAO COMMAND
+\newcommand{\secao}[1]{
+\begin{center}
+    \textbf{#1}
+\end{center}
+}
+
+
+%% ASSINGMENT SECTION COMMAND
+\newcommand{\assigmentSection}{
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\begin{multicols}{2}
+    \begin{center}
+        \textbf{CONTRATADA}
+
+        \bigskip
+
+        \bigskip
+
+    \end{center}
+    \assigment{Gabriel Marques de Melo}{Diretor-presidente Emakers Júnior}
+
+    \bigskip
+
+    \bigskip
+
+    \bigskip
+
+    \begin{center}
+        \textbf{TESTEMUNHA 1}
+
+        \bigskip
+
+    \end{center}
+
+    Nome:
+
+    \bigskip
+
+    CPF:
+
+    \bigskip
+
+    RG:
+
+    \bigskip
+    \assigment{}{}
+
+    \begin{center}
+        \textbf{CONTRATANTE}
+
+        \bigskip
+
+        \bigskip
+
+    \end{center}
+    \assigment{\nome}{\profissao}
+
+    \bigskip
+
+    \bigskip
+
+    \bigskip
+
+    \begin{center}
+        \textbf{TESTEMUNHA 2}
+
+        \bigskip
+
+    \end{center}
+
+    Nome:
+
+    \bigskip
+
+    CPF:
+
+    \bigskip
+
+    RG:
+
+    \bigskip
+
+    \assigment{}{}
+
+\end{multicols}
+}
+
+
+
+%% CONTRATO'S COMMANDS
+\newcommand{\contratada}{\section*{\hspace{-20pt} \textbf{CONTRATADA:}} Gabriel Marques de Melo, estudante, brasileiro, solteiro, residente e domiciliado à rua Comandante Vilas Boas, 29, Bairro Jardim Floresta, Lavras/MG, inscrito sob o CPF de nº 021.324.496-94 e RG de nº MG-16.191.021. }\label{Contratada}
+
+\newcommand{\contratante}{
+    \section*{\hspace{-20pt} \textbf{CONTRATANTE:}}\label{Contratante} \nome, \profissao, \nacionalidade, \estadoCivil, residente e domiciliado à \rua, \numero, \bairro, \cidadeUF, inscrito sob o CPF de nº \cpf e RG de nº \rg.
+
+    \bigskip
+
+    \noindent As partes acima identificadas firmam o presente contrato nos termos aqui ajustados.
+
+}
+
+
+% FORMAT CLAUSULA & PARAGRAFO TITLES
+\titleformat{\section}[runin]
+{\normalfont\bfseries}
+{}{0pt}{}
+\titlespacing{\section}
+{\parindent}{*2}{\wordsep}

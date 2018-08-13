@@ -1,32 +1,15 @@
 %%
-%% Author: melo
+%% Author: Gabriel Melo
 %% 05/08/2018
-%%
 %%
 
 %%%% PREAMBLE %%%%
 
-% abntex2
-\documentclass[11pt,openright,twoside,a4paper,brazil, article]{abntex2}
+%%% MASTER HEADER
+\input{layouts/master.tex}
 
-% Packages
-\usepackage{a4wide}
-\usepackage[margin=0in, ignorehead, left=3cm, right=2cm, bottom=3cm,top=2cm]{geometry}
-\usepackage{lipsum}%% a garbage package you don't need except to create examples.
-\usepackage{fancyhdr}
-\usepackage{graphicx}
-\usepackage{titlesec}
-\graphicspath{ {./img/} }
-\usepackage{layout} % Package that print the page dimensions (use \layout)
-\usepackage{xcolor}
-\usepackage{framed}
-\definecolor{purple-emk}{RGB}{125,0,125}
-\usepackage{multicol}
-\setlength{\columnsep}{1cm}
-
-%% ROBOTO FONT (http://www.tug.dk/FontCatalogue/roboto/)
-\usepackage[sfdefault]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
-\usepackage[T1]{fontenc}
+%%% CONTRACT HEADER
+\input{layouts/contract.tex}
 
 %% DADOS DO DOCUMENTO
 \def\titulo{CONTRATO DE PRESTAÇÃO DE SERVIÇOS}
@@ -43,118 +26,13 @@
 \def\cpf{111.111.111-11}
 \def\rg{11.111.111}
 
-
-% New command to set text margin
-\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
-\let\endchangemargin=\endlist
-
-% Page style
-\pagestyle{fancy}
-
-
-%% FIRST PAGE STYLE
-\fancypagestyle{first_page}
-{
-    \renewcommand{\headrulewidth}{0pt}
-    \fancyhf{}
-
-    \lhead{
-        \hspace{-207pt}\includegraphics[scale=0.27]{header}
-    }
-    
-    \lfoot{
-        \vspace{8pt}
-        \colorbox{purple-emk}{\textcolor{white!30}{\titulo} \hspace{300pt}}
-    }
-
-    \rfoot{
-        \vspace{9pt}
-        \colorbox{black!90}{\textcolor{white!30}{ \hspace{15pt} Página \thepage} \hspace{15pt}}
-    }
-
-    \headheight 40pt
-    \headsep 0pt
-    
-}
-
-%% ALL PAGES STYLE
-\fancypagestyle{all_pages}
-{
-    \renewcommand{\headrulewidth}{0pt}
-    \fancyhf{}
-
-    \lfoot{
-        \vspace{8pt}
-        \colorbox{purple-emk}{\textcolor{white!30}{\titulo} \hspace{300pt}}
-    }
-
-    \rfoot{
-        \vspace{9pt}
-        \colorbox{black!90}{\textcolor{white!30}{ \hspace{15pt} Página \thepage} \hspace{15pt}}
-    }
-
-    \headheight 40pt
-    \headsep 0pt
-    
-}
-
-\headheight 0pt              %% put this outside
-
-
-%%% COUNTERS &&&
-\newcounter{clausula_number}
-\setcounter{clausula_number}{0}
-\newcounter{paragrafo_number}
-\setcounter{paragrafo_number}{0}
-
-\makeatletter
-\@addtoreset{paragrafo_number}{clausula_number}
-\makeatother
-
-
-%% CLÁUSULA COMMAND
-\newcommand{\clausula}{
-    \stepcounter{clausula_number}
-    \section*{\hspace{-20pt} \textbf{CLÁUSULA  \arabic{clausula_number}º:}}\label{sec:Clausula\arabic{clausula_number}}
-}
-
-%% PARAGRAFO COMMAND
-\newcommand{\paragrafo}{
-    \addtocounter{paragrafo_number}{1}
-    \section*{\hspace{-20pt} \textbf{§  \arabic{paragrafo_number}º:}}\label{sec:Paragrafo\arabic{paragrafo_number}-\arabic{clausula_number}}
-}
-
-%% ASSINGMENT COMMAND
-\newcommand{\assigment}[2]{
-    \begin{center}
-        \underline{\hspace{7cm}}
-
-        #1
-
-        #2
-
-    \end{center}
-}
-
-%% CONTRATO'S COMMANDS
-\newcommand{\contratada}{\section*{\hspace{-20pt} \textbf{CONTRATADA:}} Gabriel Marques de Melo, estudante, brasileiro, solteiro, residente e domiciliado à rua Comandante Vilas Boas, 29, Bairro Jardim Floresta, Lavras/MG, inscrito sob o CPF de nº 021.324.496-94 e RG de nº MG-16.191.021. }\label{Contratada}
-\newcommand{\contratante}{\section*{\hspace{-20pt} \textbf{CONTRATANTE:}} \nome, \profissao, \nacionalidade, \estadoCivil, residente e domiciliado à \rua, \numero, \bairro, \cidadeUF, inscrito sob o CPF de nº \cpf e RG de nº \rg. }\label{Contratante}
-
 \title{\titulo}
 \author{Gabriel Marques de Melo}
 %\date{}
 
-% Format CLAUSULA TITLES
-\titleformat{\section}[runin]
-{\normalfont\bfseries}
-{}{0pt}{}
-\titlespacing{\section}
-{\parindent}{*2}{\wordsep}
+%%%% END PREAMBLE %%%%
 
-\setlength{\oddsidemargin}{15.5pt}
-\setlength{\evensidemargin}{15.5pt}
-
-% Document
+%%%% DOCUMENT %%%%
 \begin{document}
     \maketitle
     \thispagestyle{first_page}
@@ -162,95 +40,45 @@
     \contratada
     \contratante
 
-    \bigskip
+    \secao{DO OBJETO}
+    \clausula OI \lipsum[1]
 
-    \noindent As partes acima identificadas firmam o presente contrato nos termos aqui ajustados.
-
-    \clausula OI \lipsum[1-2]
-    \clausula Refere-se CLÁUSULA 1 \ref{clausula_5} \lipsum[1]
+    \secao{DOS DIREITOS E OBRIGAÇÕES DA CONTRATADA}
+    \clausula Refere-se CLÁUSULA 1 \ref{sec:Clausula5} \lipsum[1]
         \paragrafo \lipsum[1]
         \paragrafo \lipsum[1]
+
+    \secao{DOS DIREITOS E OBRIGAÇÕES DA CONTRATANTE}
     \clausula \lipsum[1]
         \paragrafo \lipsum[1]
         \paragrafo \lipsum[1]
     \clausula \lipsum[1]
+
+    \secao{DOS PRAZOS}
     \clausula \label{clausula_5} \lipsum[1]
+
+    \secao{DOS PAGAMENTOS}
     \clausula \lipsum[1]
 
-    \begin{multicols}{2}
-        \begin{center}
-            \textbf{CONTRATADA}
+    \secao{DA RESCISÃO }
+    \clausula \lipsum[1]
 
-            \bigskip
-            
-            \bigskip    
+    \secao{DO INADIMPLEMENTO}
+    \clausula \lipsum[1]
 
-        \end{center}
-        \assigment{Gabriel Marques de Melo}{Diretor-presidente Emakers Júnior}
+    \secao{DO FORO}
+    \clausula  Em caso de extinção da CONTRATANTE, os direitos e obrigações contraídos por
+    força do presente contrato transmitem-se aos seus sucessores.
+    \clausula  Para dirimir quaisquer controvérsias oriundas do presente contrato, procura-se
+    primeiramente métodos alternativos de resolução de conflitos, quais sejam,
+    MEDIAÇÃO E CONCILIAÇÃO, e em caso de futura necessidade as partes elegem o foro da
+    Comarca de Lavras.
 
-        \bigskip
+    \secao{DAS DISPOSIÇÕES GERAIS}
+    \clausula Qualquer serviço adicional, será firmado por termo aditivo à este contrato.
+    \clausula Por estarem justos e contratados, firmam o presente instrumento, em duas vias de igual teor, junto a 2 (duas) testemunhas.
 
-        \bigskip
-
-        \bigskip
-
-        \begin{center}
-            \textbf{TESTEMUNHA 1}
-
-            \bigskip            
-
-        \end{center}
-
-        Nome:
-
-        \bigskip    
-
-        CPF:
-
-        \bigskip    
-
-        RG:
-
-        \bigskip    
-        \assigment{}{}
-
-        \begin{center}
-            \textbf{CONTRATANTE}
-            
-            \bigskip
-            
-            \bigskip    
-
-        \end{center}
-        \assigment{\nome}{\profissao}
-
-        \bigskip
-
-        \bigskip
-
-        \bigskip
-
-        \begin{center}
-            \textbf{TESTEMUNHA 2}
-            
-            \bigskip 
-
-        \end{center}
-
-        Nome:
-
-        \bigskip    
-
-        CPF:
-
-        \bigskip    
-
-        RG:
-
-        \bigskip    
-
-        \assigment{}{}
-
-    \end{multicols}
+    \assigmentSection
 
 \end{document}
+%%%% END DOCUMENT %%%%
