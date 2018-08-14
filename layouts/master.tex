@@ -39,7 +39,7 @@
 
 \lfoot{
 \vspace{8pt}
-\colorbox{purple-emk}{\textcolor{white!30}{\titulo \textcolor{purple-emk}{Ç}} \hspace{300pt}}
+\colorbox{purple-emk}{\textcolor{white!30}{\titulo \textcolor{purple-emk}{Ç}} \hspace{350pt}}
 }
 
 \rfoot{
@@ -60,7 +60,7 @@
 
 \lfoot{
 \vspace{8pt}
-\colorbox{purple-emk}{\textcolor{white!30}{\titulo \textcolor{purple-emk}{Ç}} \hspace{300pt}}
+\colorbox{purple-emk}{\textcolor{white!30}{\titulo \textcolor{purple-emk}{Ç}} \hspace{350pt}}
 }
 
 \rfoot{
@@ -73,8 +73,8 @@
 
 }
 
-%% ASSINGMENT COMMAND
-\newcommand{\assigment}[2]{
+%% Signature COMMAND
+\newcommand{\signature}[2]{
 \begin{center}
     \underline{\hspace{7cm}}
 
@@ -92,3 +92,9 @@
 
 \setlength{\oddsidemargin}{15.5pt}
 \setlength{\evensidemargin}{15.5pt}
+
+\def\initdoc{
+	\maketitle
+    \thispagestyle{first_page}
+    \pagestyle{all_pages}
+}
