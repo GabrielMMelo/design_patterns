@@ -24,5 +24,18 @@
 \begin{document}
 	\initdoc
 
+	%% Connect to server
+	\texdbconnectionnet{MySql.Data.MySqlClient}{Database=emakers;Uid=root;Pwd=****;}
+
+	% Define a query:   \texdbdef{??query_name}{SQL_STATEMENT}{??returned_variable_name_1, ??returned_variable_name_2, ...}
+	\texdbdef{??userqry}{select name from users where id=1}{??username}
+
+	% Check if returned query is not null
+	\texdbif{??userqry}{
+		\begin{itemize}
+			% Loop with rows returneds:   \texdbfor{??query_name}{LaTeX statements, using ??returned_variable_name to display returned variables}
+			\texdbfor{??userqry}{\item ??username \\}
+		\end{itemize}
+	}
 
 \end{document}
