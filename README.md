@@ -13,45 +13,45 @@ Official Emakers Júnior LaTeX docs templates. 💜
 
 
 ## Folders
-- *layouts/*
+- `layouts/`
 
     Aux files to include. Here, files has `\dev`, `\newcommand` and all reusable stuff.
 
-- *out/*
+- `out/`
 
     Generated *.pdf* files.  We have been used `pdflatex` compiler.
 
-- *img/*
+- `img/`
     
     All image files.
 
-- *docs/*
+- `docs/`
     
     Support files. Tutorials, guides and documentation.
 
 ## Documents
 
-- _doc.tex_
+- `doc.tex`
     
     General purpose document. 
 
-- _contract.tex_
+- `contract.tex`
     
     Official services contract.
 
-- _volunteer.tex_
+- `volunteer.tex`
     
     Volunteer term.
 
-- _agenda.tex_
+- `agenda.tex`
 
     A list of items to be discussed at a meeting.
 
-- _minutes.tex_
+- `minutes.tex`
      
     A summary or record of what is said or decided at a formal meeting.
 
-- _announcement.tex_
+- `announcement.tex`
 
 	A doc to jobs e elections announcements.
 
