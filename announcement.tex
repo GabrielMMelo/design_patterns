@@ -14,6 +14,9 @@
 %% DADOS DO DOCUMENTO
 \def\titulo{EDITAL GENÉRICO}
 
+%% DADOS DO EDITAL
+\def\projeto{Redação Inteligente}
+
 \title{\titulo}
 \author{Gabriel Marques de Melo}
 %\date{}
@@ -24,18 +27,64 @@
 \begin{document}
 	\initdoc
 
-	%% Connect to server
-	\texdbconnectionnet{MySql.Data.MySqlClient}{Database=emakers;Uid=root;Pwd=****;}
+	A Emakers Júnior torna público o presente edital, com procedimentos para seleção do time de desenvolvimento responsáveis por implementar as funcionalidades do projeto \textbf{\textcolor{purple-emk}{\projeto}}, doravante aqui denominado PROJETO.
 
-	% Define a query:   \texdbdef{??query_name}{SQL_STATEMENT}{??returned_variable_name_1, ??returned_variable_name_2, ...}
-	\texdbdef{??userqry}{select name from users where id=1}{??username}
+	\secao{DO OBJETO}
+	\clausula O objetivo é selecionar, no máximo, 6 (seis) membros plenos da empresa para comporem o time de desenvolvimento do PROJETO.
 
-	% Check if returned query is not null
-	\texdbif{??userqry}{
-		\begin{itemize}
-			% Loop with rows returneds:   \texdbfor{??query_name}{LaTeX statements, using ??returned_variable_name to display returned variables}
-			\texdbfor{??userqry}{\item ??username \\}
-		\end{itemize}
-	}
+	\secao{DO PROJETO}
+	\clausula O projeto consiste em um aplicação web para submissão de redações por alunos e correção delas pelos professores, de forma automatizada.
+	\clausula A Execução do projeto consiste em um serviço prestado pela Emakers Júnior a um cliente, sendo este um pessoa física.
+	\clausula Os requisitos, com TODAS as funcionalidades que DEVEM ser cumpridas e implementadas, podem ser obtidos em:
+	https://drive.google.com/open?id=17XS9HoQKm0eh-EeHM1oln-ugxqB4N4sb0wzw9NJvhsc
+
+	\secao{DOS PRAZOS}
+	\clausula O prazo final de entrega do produto COMPLETO, é dia 7 de janeiro de 2019, conforme previsto em contrato.
+
+	\paragrafo No decorrer do desenvolvimento, segundo a metodologia Scrum, haverão sub-prazos a serem cumpridos, as Sprints.
+
+	\paragrafo Todo o desenvolvimento do projeto obedecerá ao disposto na metodologia ágil da empresa, disponível em:
+
+	%https://drive.google.com/open?id=1xU4qtqDhZoxXpDjI2KVOWJ5mV_SZrCkEk15t4ITPL60
+	
+	%https://drive.google.com/open?id=1rM7gVzj6Pag0UyfFBu-rAEFyqx4Duj4TRYV1wXP8DOo
+
+	\secao{DO CARGO}
+
+	\clausula A vigência do cargo começa assim que for divulgado o resultado e termina no dia 7 de janeiro de 2019, prazo final de entrega do projeto.
+
+	\clausula Em caso extraordinário, a data de vigência poderá ser alterada caso a mudança seja devidamente aprovada pela Diretoria Executiva da Emakers Júnior.
+
+	
+	\secao{DO TIME DE DESENVOLVIMENTO}
+
+	\clausula O time de desenvolvimento será composto por todos os desenvolvedores selecionados neste edital.
+
+	\clausula O time, como um todo, deverá prezar pelo cumprimento dos itens 2.3 e 2.4 com excelência e profissionalidade.
+
+	
+	\secao{DA INSCRIÇÃO}
+
+	\clausula Qualquer membro efetivo da Emakers Júnior, excetuando o gerente do projeto,  podem candidatar-se à vaga.
+	
+	\clausula A inscrição é feita pelo preenchimento do formulário: 
+	https://goo.gl/forms/JLEmOwDO78R4sjQj2
+
+	\clausula O prazo inicia-se com a publicação deste, até as 18:00 do dia 16 de agosto de 2018, quinta-feira.
+
+
+	\secao{DO RESULTADO}
+	\clausula O resultado será divulgado no dia 17 de agosto de 2018, sexta-feira, a partir das 11:00.
+
+
+	\secao{DAS DISPOSIÇÕES GERAIS}
+	
+	\clausula O Gerente do projeto, juntamente com o Diretor de Projetos, avaliará e selecionará o(s) candidato(s) que melhor se encaixe(m) no perfil do cargo para o projeto, seguindo o que foi disposto no regimento interno da empresa.
+	
+	\clausula Não cabe recurso sobre o resultado final, pois a decisão é do Gerente do projeto.
+	
+	\clausula Qualquer dúvida deve ser encaminhada ao canal \textbf{\#dúvidas} do Slack da Emakers Júnior.
+
+
 
 \end{document}
