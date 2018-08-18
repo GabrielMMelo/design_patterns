@@ -51,12 +51,14 @@ Official Emakers Júnior LaTeX docs templates. 💜
      
     A summary or record of what is said or decided at a formal meeting.
 
-- _~~announcement.tex~~_
+- _announcement.tex_
+
+	A doc to jobs e elections announcements.
 
 
 ## Install/Usage `nlatexbd`
 
-### Installing
+### Installing on Windows
 
 1. Download `nlatexdb` to the project root;
 
@@ -81,7 +83,7 @@ Where `Version=` is the same version number that's there when you installed the 
 
 
 
-### Using
+### Using on Windows
 
 Execute the code below:
 
@@ -89,9 +91,9 @@ Execute the code below:
 mono --runtime=v4.0 nlatexdb.exe -e utf-8 -p FILE_NAME.tex
 ```
 
-> *-p* is used to call `pdflatex` on result.
+> **-p** is used to call `pdflatex` on result.
 
-> *-e* is used to set encoding to input/output.
+> **-e** is used to set encoding to input/output.
 
 ### References
 
