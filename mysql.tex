@@ -1,0 +1,41 @@
+%%
+%% Author: melo
+%% 16/08/2018
+%%
+
+%%%% PREAMBLE %%%%
+
+%%% MASTER HEADER
+\input{layouts/master.tex}
+
+%%% CONTRACT HEADER
+\input{layouts/contract.tex}
+
+%% DADOS DO DOCUMENTO
+\def\titulo{DOCUMENTO TESTE}
+
+\title{\titulo}
+\author{Gabriel Marques de Melo}
+%\date{}
+
+%%%% END PREAMBLE %%%%
+
+%%%% DOCUMENT %%%%
+\begin{document}
+	\initdoc
+
+	%% Connect to server
+	\texdbconnectionnet{MySql.Data.MySqlClient}{Database=emakers;Uid=root;Pwd=****;}
+
+	% Define a query:   \texdbdef{??query_name}{SQL_STATEMENT}{??returned_variable_name_1, ??returned_variable_name_2, ...}
+	\texdbdef{??userqry}{select name from users where not id=55}{??username}
+
+	% Check if returned query is not null
+	\texdbif{??userqry}{
+		\begin{itemize}
+			% Loop with rows returneds:   \texdbfor{??query_name}{LaTeX statements, using ??returned_variable_name to display returned variables}
+			\texdbfor{??userqry}{\item ??username}
+		\end{itemize}
+	}
+
+\end{document}
